@@ -27,7 +27,7 @@ const updateAvatar = async ()=>{
     let result = await userAvatarUpdateService(imgUrl.value);
 
     ElMessage.success(result.msg? result.msg:'修改成功')
-
+    
     //修改pinia中的数据
     userInfoStore.info.userPic = imgUrl.value
 }
@@ -47,7 +47,7 @@ const updateAvatar = async ()=>{
                     class="avatar-uploader" 
                     :show-file-list="false"
                     :auto-upload="true"
-                    action="/api/upload"
+                    action="/api/fileupload"
                     name="file"
                     :headers="{'Authorization':tokenStore.token}"
                     :on-success="uploadSuccess"
